@@ -16,6 +16,7 @@ export default function Page() {
 
       <form onSubmit={chatArgs.handleSubmit}>
         <input
+          className="bg-white text-black border border-solid border-black"
           value={chatArgs.input}
           placeholder="Send a message..."
           onChange={chatArgs.handleInputChange}
