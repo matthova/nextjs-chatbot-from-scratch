@@ -1,16 +1,20 @@
 "use client";
 
 import { useChat } from "ai/react";
+import { useState } from "react";
+import { v4 } from "uuid";
 
 export default function Page() {
+  const [chatModelAId] = useState(v4());
+  const [chatModelBId] = useState(v4());
   const chatModelA = useChat({
-    body: { model: "gpt-4o" },
+    body: { id: chatModelAId, model: "gpt-4o" },
     onError: (error) => {
       console.error("gpt-4o error", error);
     },
   });
   const chatModelB = useChat({
-    body: { model: "gpt-4o-mini" },
+    body: { id: chatModelBId, model: "gpt-4o-mini" },
     onError: (error) => {
       console.error("o1 error", error);
     },
